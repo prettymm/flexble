@@ -10,3 +10,43 @@
 5.运行对应的任务来生成build里的文件。
 
 未完。。。。。。
+
+一款APP从设计稿到切图过程全方位揭秘
+http://www.chinaz.com/design/2015/0918/448252.shtml
+
+彻底弄懂CommonJS和AMD/CMD！
+http://www.cnblogs.com/chenguangliang/p/5856701.html
+
+gulp plugins
+http://gulpjs.com/plugins/
+
+遇到的问题
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+Error: module "./module-template.js" not found from "/Users/pretty.jiao/flexble/src/js/fake_8bca2bed.js"
+    at notFound (/Users/pretty.jiao/flexble/node_modules/browserify/index.js:803:15)
+    at /Users/pretty.jiao/flexble/node_modules/browserify/index.js:754:23
+    at /Users/pretty.jiao/flexble/node_modules/browser-resolve/index.js:185:24
+    at /Users/pretty.jiao/flexble/node_modules/browser-resolve/node_modules/resolve/lib/async.js:36:22
+    at load (/Users/pretty.jiao/flexble/node_modules/browser-resolve/node_modules/resolve/lib/async.js:54:43)
+    at /Users/pretty.jiao/flexble/node_modules/browser-resolve/node_modules/resolve/lib/async.js:60:22
+    at /Users/pretty.jiao/flexble/node_modules/browser-resolve/node_modules/resolve/lib/async.js:16:47
+    at FSReqWrap.oncomplete (fs.js:82:15)
+
+how to fix?
+import Template from './modules/module-template.js';
+引用的文件路径出错了
+
+
+
+
+
+
+
+
+
+
+
+
+

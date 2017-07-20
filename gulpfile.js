@@ -9,6 +9,7 @@ var browserSync = require('browser-sync');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var pump = require('pump');
+var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
 
 var webConfig = {
@@ -92,11 +93,25 @@ gulp.task('test', function(){
 });
 
 gulp.task('es-js', function () {
-  return gulp.src(paths.regex.js)
+  return gulp.src('./src/js/app.js')
     .pipe(babel({
         presets: ['es2015']  //es2015规范编译
     }))
-    .pipe(gulp.dest(paths.dest.js));
+    .pipe(browserify({
+            insertGlobals: true
+    }))
+    .pipe(gulp.dest('./build/assets/js'));
+});
+
+gulp.task('js', function(){
+  return gulp.src('./src/js/app.js')
+  .pipe(babel({
+    presets: ['es2015']  //es2015规范编译
+  }))
+  .pipe(browserify({
+          insertGlobals: true
+    }))
+  .pipe(gulp.dest('./build/assets/js'))
 });
 
 gulp.task('vendor-js', function (cb) {
@@ -114,6 +129,6 @@ gulp.task('server', function () {
 });
 
 
-gulp.task('all', ['stylus', 'px2rem', 'pug', 'coffee'])
+gulp.task('all', ['px2rem', 'html', 'js', 'vendor-js']);
 
 
